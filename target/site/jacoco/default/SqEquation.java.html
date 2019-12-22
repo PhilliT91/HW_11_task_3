@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SqEquation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW_11_3</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">SqEquation.java</span></div><h1>SqEquation.java</h1><pre class="source lang-java linenums">import org.w3c.dom.ls.LSOutput;
+
+public class SqEquation {
+<span class="fc" id="L4">double a=0;</span>
+<span class="fc" id="L5">double b=0;</span>
+<span class="fc" id="L6">double c=0;</span>
+
+<span class="fc" id="L8">    public SqEquation() {</span>
+
+<span class="fc" id="L10">    }</span>
+
+    public double getA() {
+
+<span class="fc" id="L14">        return a;</span>
+    }
+
+    public double getB() {
+
+<span class="fc" id="L19">        return b;</span>
+    }
+
+    public double getC() {
+
+<span class="fc" id="L24">        return c;</span>
+    }
+
+    public double discriminant(double a, double b, double c) {
+
+<span class="fc" id="L29">        return (b*b-4*a*c);</span>
+    }
+
+    public double[] roots(double a, double b, double c){
+<span class="fc" id="L33">        double d=discriminant(a,b,c);</span>
+        double [] roots;
+       try{
+
+
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if(d&lt;0){</span>
+<span class="fc" id="L39">            throw new ArithmeticException();</span>
+        }
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        else if(d==0){</span>
+<span class="fc" id="L42">            roots= new double[1];</span>
+<span class="fc" id="L43">            roots[0]=-b/(2*a);</span>
+<span class="fc" id="L44">            return  roots;</span>
+        }
+        else{
+<span class="fc" id="L47">            roots= new double[2];</span>
+<span class="fc" id="L48">            roots[0]=((-b+Math.sqrt(d))/2*a);</span>
+<span class="fc" id="L49">            roots[1]=((-b-Math.sqrt(d))/2*a);</span>
+<span class="fc" id="L50">            return roots;</span>
+
+        }
+<span class="fc" id="L53">       }catch (ArithmeticException e){</span>
+<span class="fc" id="L54">           System.out.println(&quot;equation has no roots&quot;);</span>
+<span class="fc" id="L55">            roots=new double[0];</span>
+<span class="fc" id="L56">           return null;</span>
+
+       }
+
+
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
